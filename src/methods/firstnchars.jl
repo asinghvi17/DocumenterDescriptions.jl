@@ -33,7 +33,7 @@ function (plugin::FirstNCharsDescriber)(flattened_text::String)
             return initial_description
         else
             words = split(initial_description, " ") # this has already been preprocessed such that there is only one space between each word
-            cum_n_chars = cumsum(length, words) #= the length of each word =# .+ 1:length(words) #= one space between each word =#
+            cum_n_chars = cumsum(length.(words)) #= the length of each word =# .+ 1:length(words) #= one space between each word =#
             cutoff_idx = searchsortedfirst(plugin.nchars, cum_n_chars)
             return initial_description[1:cum_n_chars[cutoff_idx]]
         end
