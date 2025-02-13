@@ -1,5 +1,5 @@
 """
-    FirstNCharsDescriber(; nchars = 160, approx = true)
+    FirstNCharsDescriber(; nchars = 160, approx = true) <: AbstractDescriber
 
 A describer that takes the first `nchars` characters of text.
 
