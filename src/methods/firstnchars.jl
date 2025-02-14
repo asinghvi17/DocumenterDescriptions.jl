@@ -24,7 +24,7 @@ end
 function (plugin::FirstNCharsDescriber)(flattened_text::String)
 
     # Create an initial description of the page.
-    initial_description = flattened_text[1:min(end, plugin.nchars * 4)] # 4x to account for potential markdown formatting
+    initial_description = flattened_text[1:(min(end, plugin.nchars * 4))] # 4x to account for potential markdown formatting
     initial_description = replace(replace(initial_description, r"\s+" => " "), r"^\s+|\s+$" => "")
 
     if plugin.approx
@@ -33,11 +33,11 @@ function (plugin::FirstNCharsDescriber)(flattened_text::String)
             return initial_description
         else
             words = split(initial_description, " ") # this has already been preprocessed such that there is only one space between each word
-            cum_n_chars = cumsum(length.(words)) #= the length of each word =# .+ 1:length(words) #= one space between each word =#
+            cum_n_chars = cumsum(length.(words)) #= the length of each word =# .+ (1:length(words)) #= one space between each word =#
             cutoff_idx = searchsortedfirst(plugin.nchars, cum_n_chars)
-            return initial_description[1:cum_n_chars[cutoff_idx]]
+            return initial_description[1:(cum_n_chars[cutoff_idx])]
         end
     else
-        return initial_description[1:min(end, plugin.nchars)]
+        return initial_description[1:(min(end, plugin.nchars))]
     end
 end
