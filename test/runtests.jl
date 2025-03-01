@@ -2,5 +2,7 @@ using DocumenterDescriptions
 using Test
 
 @testset "DocumenterDescriptions.jl" begin
-    # Write your tests here.
+    @testset "FirstNChars" begin
+        include("firstnchars.jl")
+    end
 end
