@@ -7,6 +7,14 @@ Useful if you're running an LLM to generate summaries and want to minimize cost!
 
 Construct the object and pass it to the `plugin` kwarg of `makedocs`.
 
+!!! warning
+    This will write to files - but if you're running this in a CI pipeline, 
+    then that won't propagate the changes to the branch or PR.
+
+    If you're running this locally, then it's fine - just remember to commit the changes.
+
+    Also, this won't work for generated files.
+
 # Arguments
 - `describer`: The describer to use to generate the description.
 """
