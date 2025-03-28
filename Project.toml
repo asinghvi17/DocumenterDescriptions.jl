@@ -1,7 +1,7 @@
 name = "DocumenterDescriptions"
 uuid = "e9159221-f9c0-48a0-ba53-9ba151c71a1d"
 authors = ["Anshul Singhvi <anshul.singhvi@juliahub.com>"]
-version = "0.1.0-DEV"
+version = "0.1.0"
 
 [deps]
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
